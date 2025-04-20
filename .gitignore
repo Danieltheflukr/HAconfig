@@ -1,0 +1,18 @@
+# Home Assistant
+home-assistant.log
+home-assistant_v2.db
+home-assistant.log.1
+*.db-shm
+*.db-wal
+*.pyc
+__pycache__/
+deps/
+.DS_Store
+secrets.yaml        # 非常重要！儲存你的密碼和 API 金鑰
+.storage/           # 極度重要！包含認證、裝置資訊等敏感內容
+esphome/           # 如果你用 ESPHome，編譯的檔案很大
+backups/           # 備份檔通常很大
+tts/                # 文字轉語音的快取檔
+node_modules/       # 如果你有用到 Node.js 相關開發
+*.[oa]
+*.sqlite
