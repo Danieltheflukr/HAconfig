@@ -1,0 +1,42 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+frontend:
+ # your configuration.
+  themes: !include_dir_merge_named themes
+
+  extra_module_url:
+    - /homeassistant/www/community/lovelace-card-mod/card-mod.js
+
+# Include automations, scripts, and scenes
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+xiaomi_miot:
+  username: "haveanewlife@gmail.com" 
+  password: "Aa010224" 
+  server_country: tw , cn # 只使用台灣伺服器
+    
+tunnel: homeassistant   # <--- 改成你在 Cloudflare 建立的 Tunnel 名稱
+credentials-file: /config/cloudflared/home-tunnel-id.json
+
+ingress:
+  - hostname: home.mingleedan.org
+    service: http://homeassistant.local:8123
+  - service: http_status:404
+
+shell_command:
+  restart_pow: touch ~/.pow/restart.txt
+  call_remote: curl http://example.com/ping
+  my_script: bash /config/shell/script.sh
+  update_xiaomi_miot: |-
+    wget -O - https://get.hacs.vip | DOMAIN=xiaomi_miot bash -
+
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.30.32.2     # Supervisor IP
+    - 172.30.33.0/24  # Add-on container 的 IP 段（涵蓋 Cloudflared）
+
