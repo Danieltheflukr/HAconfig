@@ -1,0 +1,88 @@
+fan_power_on:
+  alias: fan power on
+  sequence:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: 电源
+    target:
+      entity_id: select.remote_ir_1871976069385838592
+  description: ''
+  mode: restart
+fan_wave:
+  alias: fan wave(Horizontal)
+  sequence:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: 摆风
+    target:
+      entity_id: select.remote_ir_1871976069385838592
+  description: ''
+  mode: restart
+  icon: mdi:arrow-oscillating
+fan_speed:
+  alias: fan speed+
+  sequence:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: 风速
+    target:
+      entity_id: select.remote_ir_1871976069385838592
+  description: ''
+  mode: restart
+  icon: mdi:weather-windy
+fan_wave_2:
+  alias: fan wave (Vertical)
+  sequence:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: 风类
+    target:
+      entity_id: select.remote_ir_1871976069385838592
+  description: ''
+  mode: restart
+  icon: mdi:arrow-up-down
+unknown:
+  sequence:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: 電源
+    target:
+      entity_id: select.remote_ir_1871975824379752448
+  alias: 新腳本
+  description: ''
+power:
+  sequence:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: 电源
+    target:
+      entity_id: select.remote_ir_1871975824379752448
+  alias: 電視power
+  description: ''
+tv_power:
+  sequence:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: 电源
+    target:
+      entity_id: select.remote_ir_1871975824379752448
+  alias: tv power
+  description: ''
+tv_power_on:
+  sequence:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: 电源
+    target:
+      entity_id: select.remote_ir_1871975824379752448
+  alias: 'TV power on '
+  description: ''
+  mode: restart

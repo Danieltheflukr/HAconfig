@@ -1,0 +1,146 @@
+- id: '1735833013766'
+  alias: 'BLE FAN '
+  description: ''
+  triggers:
+  - device_id: c84f4c81c0b19d14ddccde33f13cb2b0
+    domain: xiaomi_ble
+    type: button
+    subtype: long_press
+    trigger: device
+  conditions: []
+  actions:
+  - action: script.fan_power_on
+    metadata: {}
+    data: {}
+  mode: single
+- id: '1735859556520'
+  alias: fan speed+'
+  description: ''
+  triggers:
+  - device_id: c84f4c81c0b19d14ddccde33f13cb2b0
+    domain: xiaomi_ble
+    type: button
+    subtype: press
+    trigger: device
+  conditions: []
+  actions:
+  - action: script.fan_speed
+    metadata: {}
+    data: {}
+  mode: single
+- id: '1735859690163'
+  alias: Horizoontal
+  description: ''
+  triggers:
+  - device_id: c84f4c81c0b19d14ddccde33f13cb2b0
+    domain: xiaomi_ble
+    type: button
+    subtype: double_press
+    trigger: device
+  conditions: []
+  actions:
+  - action: script.fan_wave
+    metadata: {}
+    data: {}
+  mode: single
+- id: '1735861398357'
+  alias: Horizontal
+  description: ''
+  triggers:
+  - device_id: c84f4c81c0b19d14ddccde33f13cb2b0
+    domain: xiaomi_ble
+    type: button
+    subtype: double_press
+    trigger: device
+  conditions: []
+  actions:
+  - action: script.fan_wave_2
+    metadata: {}
+    data: {}
+  mode: queued
+  max: 10
+- id: '1735958819715'
+  alias: lights
+  description: ''
+  triggers:
+  - device_id: d1772ca1e054971a71367fae94befd30
+    domain: xiaomi_ble
+    type: button
+    subtype: long_press
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.lights
+  mode: single
+- id: '1735958909323'
+  alias: liht up
+  description: ''
+  triggers:
+  - device_id: d1772ca1e054971a71367fae94befd30
+    domain: xiaomi_ble
+    type: button
+    subtype: double_press
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data:
+      color_temp: 153
+      brightness: 255
+      hs_color: {}
+    target:
+      entity_id: light.lights
+  mode: single
+- id: '1735958997266'
+  alias: 單擊開關燈
+  description: ''
+  triggers:
+  - device_id: d1772ca1e054971a71367fae94befd30
+    domain: xiaomi_ble
+    type: button
+    subtype: press
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.toggle
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.lights
+  mode: single
+- id: '1740935916428'
+  alias: 自動關機
+  description: ''
+  triggers:
+  - trigger: time
+    at: 03:15:00
+  conditions: []
+  actions:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: turn off
+    target:
+      entity_id: select.miir_ir02_8912_mode_for_ir
+  mode: single
+- id: '1740936063354'
+  alias: 建立新的自動化
+  description: ''
+  triggers:
+  - trigger: time
+    at: 03:15:00
+  conditions: []
+  actions:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: 电源
+    target:
+      device_id: 71918d651a5809512c660d4eddd2a1f8
+      entity_id: select.miir_ir02_8912_mode_for_ir
+  mode: single
